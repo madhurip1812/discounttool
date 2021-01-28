@@ -1,6 +1,6 @@
-$("#addintellikitcashback").validate({
+$("#addcashback").validate({
     rules:{
-      'rulefor' => 'required',   
+      'rulefor':'required',   
       'rulename':'required',
       'cashoncoupon':'required',
       'cashoutcoupon':'required',
@@ -16,6 +16,9 @@ $("#addintellikitcashback").validate({
       'cashstartdate':'required',
       'cashenddate':'required' ,
       'isactive':'required',
+      'cashproductsendtimehr':'required',
+      'cashproductstarttimehr':'required',
+      'productids':'required'
     },
     messages:{},
     submitHandler:function(form) {

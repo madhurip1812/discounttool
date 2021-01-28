@@ -5,7 +5,7 @@
     <div class="container-fluid"> -->
 <div class="panel panel-headline">
     <div class="panel-heading">
-        <h3 class="panel-title">Add Intellikit Cashabck</h3>
+        <h3 class="panel-title">Add Cashabck</h3>
     </div>
     <div class="panel-body">
         @if (session('status'))
@@ -13,14 +13,15 @@
             {{ session('status') }}
         </div>
         @endif
-		<form name="addintellikitcashback" id="addintellikitcashback" action="{{route('intellikitcashback')}}" method="POST">
+		<form name="addcashback" id="addcashback" action="{{route('addcashback')}}" method="POST">
 			@csrf
 		<div class="row">
 			<div class="col-md-12">
 				<div class="input-group" style="box-shadow: none;">
 				<span>Rule For: <span class="text-danger">*</span> </span> &nbsp;&nbsp;&nbsp;
-					<label for="rulefor1"> <input type="radio" name="rulefor" id="rulefor1" value="1"> Product</label>&nbsp;&nbsp;&nbsp;
-					<label for="rulefor2"> <input type="radio" name="rulefor" id="rulefor2" value="2"> Intellikit</label>
+				    <label for="rulefor2"> <input type="radio" name="rulefor" id="rulefor2" value="2" checked> Intellikit</label>&nbsp;&nbsp;&nbsp;
+					<label for="rulefor1"> <input type="radio" name="rulefor" id="rulefor1" value="1"> Product</label><!-- &nbsp;&nbsp;&nbsp;
+					<label for="rulefor3"> <input type="radio" name="rulefor" id="rulefor3" value="3"> TimeBased</label> -->
 				</div>
 			</div>
 		</div>
@@ -56,7 +57,7 @@
 				<span>Cashback Validity Days:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="cashvaliddays" id="cashvaliddays" value="" class="form-control" />
+				<input type="number" name="cashvaliddays" id="cashvaliddays" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -87,7 +88,7 @@
 			</div>
 		</div>
 
-		<div class="row form-group">
+		<div class="row form-group intellikitsubscbox">
 			<div class="col-md-4">
 				<span>Intellikit 3 Months Subscription Box No:</span> <span class="text-danger">*</span>
 			</div>
@@ -103,7 +104,7 @@
 			</div>
 		</div>
 
-		<div class="row form-group">
+		<div class="row form-group intellikitsubscbox">
 			<div class="col-md-4">
 				<span>Intellikit 6 Months Subscription Box No:</span> <span class="text-danger">*</span>
 			</div>
@@ -119,7 +120,7 @@
 			</div>
 		</div>
 
-		<div class="row form-group">
+		<div class="row form-group intellikitsubscbox">
 			<div class="col-md-4">
 				<span>Intellikit 9 Months Subscription Box No:</span> <span class="text-danger">*</span>
 			</div>
@@ -135,7 +136,7 @@
 			</div>
 		</div>
 
-		<div class="row form-group">
+		<div class="row form-group intellikitsubscbox">
 			<div class="col-md-4">
 				<span>Intellikit 12 Months Subscription Box No:</span> <span class="text-danger">*</span>
 			</div>
@@ -156,7 +157,7 @@
 				<span>EmailTemplateID:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="emailtemplateid" id="emailtemplateid" value="" class="form-control" />
+				<input type="number" name="emailtemplateid" id="emailtemplateid" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -167,7 +168,7 @@
 			<div class="col-md-4">
 				<input type="date" name="cashstartdate" id="cashstartdate" value="" class="form-control" />
 			</div>
-			<div class="col-md-2">
+		<!-- 	<div class="col-md-2">
 				<span>Time:</span> 
 				<select name="cashstarttimehr" id="cashstarttimehr">
 					<option value="00">00</option>
@@ -177,8 +178,26 @@
 					<option value="00">00</option>
 					<option value="11">11</option>
 				</select>
+			</div> -->
+		</div>
+
+		<div class="row form-group product">
+			<div class="col-md-4">
+				<span>Cashback Start Time:</span> <span class="text-danger">*</span>
+			</div>
+			
+			<div class="col-md-4">
+				<select name="cashproductstarttimehr" id="cashproductstarttimehr">
+					<option value="00">00</option>
+					<option value="11">11</option>
+				</select>
+				<select name="cashproductsstarttimemins" id="cashproductsstarttimemins">
+					<option value="00">00</option>
+					<option value="11">11</option>
+				</select>
 			</div>
 		</div>
+
 
 		<div class="row form-group">
 			<div class="col-md-4">
@@ -187,7 +206,7 @@
 			<div class="col-md-4">
 				<input type="date" name="cashenddate" id="cashenddate" value="" class="form-control" />
 			</div>
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<span>Time:</span> 
 				<select name="cashendtimehr" id="cashendtimehr">
 					<option value="00">00</option>
@@ -197,6 +216,32 @@
 					<option value="00">00</option>
 					<option value="11">11</option>
 				</select>
+			</div> -->
+		</div>
+        
+        <div class="row form-group product">
+			<div class="col-md-4">
+				<span>Cashback End Time:</span> <span class="text-danger">*</span>
+			</div>
+			
+			<div class="col-md-4">
+				<select name="cashproductsendtimehr" id="cashproductsendtimehr">
+					<option value="00">00</option>
+					<option value="11">11</option>
+				</select>
+				<select name="cashproductsendtimemins" id="cashproductsendtimemins">
+					<option value="00">00</option>
+					<option value="11">11</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="row form-group product">
+			<div class="col-md-4">
+				<span>Product IDs:</span> <span class="text-danger">*</span>
+			</div>
+			<div class="col-md-4">
+				<input type="text" name="productids" id="productids" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -212,7 +257,7 @@
 				<span>CreatedBy:</span>
 			</div>
 			<div class="col-md-4">
-				<span>Rekha</span>
+				<span>{{session('username')}}</span>
 			</div>
 		</div>
 		<div class="row form-group">
@@ -220,7 +265,7 @@
 				<span>Created Date:</span>
 			</div>
 			<div class="col-md-4">
-				<span>2021-01-28</span>
+				<span>{{date('Y-m-d H:i:s')}}</span>
 			</div>
 		</div>
 		<div class="row form-group">
@@ -228,7 +273,7 @@
 				<span>ModifiedBy:</span>
 			</div>
 			<div class="col-md-4">
-				<span>Rekha</span>
+				<span>{{session('username')}}</span>
 			</div>
 		</div>
 		<div class="row form-group">
@@ -236,12 +281,12 @@
 				<span>Modified Date:</span>
 			</div>
 			<div class="col-md-4">
-				<span>2021-01-28</span>
+				<span>{{date('Y-m-d H:i:s')}}</span>
 			</div>
 		</div>
 		<div class="row form-group text-center">
 			<div class="col-md-12">
-				<input type="submit" value="Save Details" class="btn btn-primary btn-sm" />
+				<input type="submit" value="Save Details" class="btn btn-primary btn-lg" />
 			</div>
 		</div>
 		</form>

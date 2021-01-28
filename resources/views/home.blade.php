@@ -6,7 +6,7 @@
         <!-- OVERVIEW -->
         <div class="panel panel-headline">
             <div class="panel-heading">
-                <h3 class="panel-title">Weekly Overview</h3>
+                <h3 class="panel-title">Dashboard</h3>
             </div>
             <div class="panel-body">
                 @if (session('status'))
