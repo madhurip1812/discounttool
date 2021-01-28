@@ -1,0 +1,148 @@
+.border-top{
+  border-top: 1px solid #F0F0F0;
+}
+.mt-1 {
+  margin-top: 1rem !important;
+}
+.error{
+	color: #e20c30;
+  font-weight: 400;
+}
+.dont-display{
+	display: none;
+}
+
+/*SideMenu CSS*/
+/* define a fixed width for the entire menu */
+/*.navigation {
+  width: 300px;
+}*/
+
+/* reset our lists to remove bullet points and padding */
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* make ALL links (main and submenu) have padding and background color */
+.mainmenu a {
+  display: block;
+  background-color: #CCC;
+  text-decoration: none;
+  padding: 10px;
+  color: #000;
+}
+
+/* add hover behaviour */
+.mainmenu a:hover {
+    background-color: #C5C5C5;
+}
+
+
+/* when hovering over a .mainmenu item,
+  display the submenu inside it.
+  we're changing the submenu's max-height from 0 to 200px;
+*/
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 200px;
+}
+
+/*
+  we now overwrite the background-color for .submenu links only.
+  CSS reads down the page, so code at the bottom will overwrite the code at the top.
+*/
+
+.submenu a {
+  background-color: #999;
+}
+
+/* hover behaviour for links inside .submenu */
+.submenu a:hover {
+  background-color: #666;
+}
+
+/* this is the initial state of all submenus.
+  we set it to max-height: 0, and hide the overflowed content.
+*/
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+}
+/*SideMenu CSS END*/
+.row-custom {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: -15px;
+}
+.custom-col-md-9{
+  flex: 0 0 78%;
+    max-width: 78%;
+}
+.custom-col-md-10{
+  flex: 0 0 78%;
+  max-width: 78%;
+}
+.float-bottom{
+  margin-top: 52px !important;
+}
+.pr-initial{
+  padding-right: inherit;
+}
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0px;
+  font-size: 1.8rem;
+  line-height: inherit;
+  color: #333;
+  border: 0;
+}
+.card-header-p{
+  padding: 0.40rem 1.10rem !important;
+}
+.card-body-p{
+  padding: 0rem !important;
+}
+#main-menu{
+  height: 61px;
+}
+.form-control.is-invalid {
+    border-color: #e3342f;
+    padding-right: calc(1.6em + 0.75rem);
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23e3342f' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23e3342f' stroke='none'/%3e%3c/svg%3e);
+    background-repeat: no-repeat;
+    background-position: right calc(0.4em + 0.1875rem) center;
+    background-size: calc(0.8em + 0.375rem) calc(0.8em + 0.375rem);
+}
+.spanPOS{
+  padding-top: 0.9rem !important;
+}
+#spanPOS{
+  font-weight: 900;
+  font-size: 18px;
+  /*vertical-align: -webkit-baseline-middle;*/
+}
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.minus:after {
+  content: '\2012';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+.border {
+      border: 1px solid #eee;
+}
