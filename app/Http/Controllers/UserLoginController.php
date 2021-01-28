@@ -12,7 +12,7 @@ use App\SessionCountryModel;
 class UserLoginController extends Controller
 {
     public function index($username='',$password='',$date='',$countrycode='',$langauge='') {
-    	//echo base64_encode($username) . " " . base64_encode($password) . " " . base64_encode($date) . " " . base64_encode($countrycode) . " " .base64_encode($langauge);exit;  cmVraGFAZ21haWwuY29t cmVraGFAMTIz MjAyMS0wMS0yOA== dWFl ZW5n
+    	//echo base64_encode($username) . " " . base64_encode($password) . " " . base64_encode($date) . " " . base64_encode($countrycode) . " " .base64_encode($langauge);exit;  cmVraGFAZ21haWwuY29t cmVraGFAMTIz MjAyMS0wMS0yOA== dWFl ZW5n rekha@gmail.com/rekha@123/2021-01-28/uae/eng
         $username = base64_decode($username);
         $password = base64_decode($password);
         $date = base64_decode($date);
