@@ -19,8 +19,8 @@
 			<div class="col-md-12">
 				<div class="input-group" style="box-shadow: none;">
 				<span>Rule For: <span class="text-danger">*</span> </span> &nbsp;&nbsp;&nbsp;
-				    <label for="rulefor2"> <input type="radio" name="rulefor" id="rulefor2" value="2" checked> Intellikit</label>&nbsp;&nbsp;&nbsp;
-					<label for="rulefor1"> <input type="radio" name="rulefor" id="rulefor1" value="1"> Product</label><!-- &nbsp;&nbsp;&nbsp;
+				    <label for="rulefor2"> <input type="radio" name="rulefor" id="rulefor2" value="intellikit" checked> Intellikit</label>&nbsp;&nbsp;&nbsp;
+					<label for="rulefor1"> <input type="radio" name="rulefor" id="rulefor1" value="time"> Product/Time</label><!-- &nbsp;&nbsp;&nbsp;
 					<label for="rulefor3"> <input type="radio" name="rulefor" id="rulefor3" value="3"> TimeBased</label> -->
 				</div>
 			</div>
@@ -95,13 +95,15 @@
 			<div class="col-md-4">
 				<select name="intellikit3monthssubscrboxno" id="intellikit3monthssubscrboxno" class="form-control">
 					<option value="">select</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
+					@for($i = 1; $i <= 3; $i++)
+					<option value="{{$i}}">{{$i}}</option>
+					@endfor
 				</select>
 			</div>
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<label for="intellikit3monthsboxisactive"> <input type="checkbox" name="intellikit3monthsboxisactive" id="intellikit3monthsboxisactive" value="" /> IsActive</label>
-			</div>
+			</div> -->
+			<input type="hidden" name="intellikit3monthssubscrtype" id="intellikit3monthssubscrtype" value="3">
 		</div>
 
 		<div class="row form-group intellikitsubscbox">
@@ -111,13 +113,15 @@
 			<div class="col-md-4">
 				<select name="intellikit6monthssubscrboxno" id="intellikit6monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
+					@for($i = 1; $i <= 6; $i++)
+					<option value="{{$i}}">{{$i}}</option>
+					@endfor
 				</select>
 			</div>
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<label for="intellikit6monthsboxisactive"> <input type="checkbox" name="intellikit6monthsboxisactive" id="intellikit6monthsboxisactive" value="" /> IsActive</label>
-			</div>
+			</div> -->
+			<input type="hidden" name="intellikit6monthssubscrtype" id="intellikit6monthssubscrtype" value="6">
 		</div>
 
 		<div class="row form-group intellikitsubscbox">
@@ -127,13 +131,15 @@
 			<div class="col-md-4">
 				<select name="intellikit9monthssubscrboxno" id="intellikit9monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
+					@for($i = 1; $i <= 9; $i++)
+					<option value="{{$i}}">{{$i}}</option>
+					@endfor
 				</select>
 			</div>
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<label for="intellikit9monthsboxisactive"> <input type="checkbox" name="intellikit9monthsboxisactive" id="intellikit9monthsboxisactive" value="" /> IsActive</label>
-			</div>
+			</div> -->
+			<input type="hidden" name="intellikit9monthssubscrtype" id="intellikit9monthssubscrtype" value="9">
 		</div>
 
 		<div class="row form-group intellikitsubscbox">
@@ -143,13 +149,15 @@
 			<div class="col-md-4">
 				<select name="intellikit12monthssubscrboxno" id="intellikit12monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
+					@for($i = 1; $i <= 12; $i++)
+					<option value="{{$i}}">{{$i}}</option>
+					@endfor
 				</select>
 			</div>
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<label for="intellikit12monthsboxisactive"> <input type="checkbox" name="intellikit12monthsboxisactive" id="intellikit12monthsboxisactive" value="" /> IsActive</label>
-			</div>
+			</div> -->
+			<input type="hidden" name="intellikit12monthssubscrtype" id="intellikit12monthssubscrtype" value="12">
 		</div>
 
 		<div class="row form-group">
@@ -168,35 +176,39 @@
 			<div class="col-md-4">
 				<input type="date" name="cashstartdate" id="cashstartdate" value="" class="form-control" />
 			</div>
-		<!-- 	<div class="col-md-2">
+			<div class="col-md-2">
 				<span>Time:</span> 
 				<select name="cashstarttimehr" id="cashstarttimehr">
-					<option value="00">00</option>
-					<option value="11">11</option>
+					@for($i = 0; $i < 60; $i++)
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					@endfor
 				</select>
 				<select name="cashstarttimemins" id="cashstarttimemins">
-					<option value="00">00</option>
-					<option value="11">11</option>
+					@for($i = 0; $i < 60; $i++)
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					@endfor
 				</select>
-			</div> -->
+			</div>
 		</div>
 
-		<div class="row form-group product">
+		<!-- <div class="row form-group product">
 			<div class="col-md-4">
-				<span>Cashback Start Time:</span> <span class="text-danger">*</span>
+				<span>Cashback Start Time:</span>
 			</div>
 			
 			<div class="col-md-4">
 				<select name="cashproductstarttimehr" id="cashproductstarttimehr">
-					<option value="00">00</option>
-					<option value="11">11</option>
+					@for($i = 0; $i < 60; $i++)
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					@endfor
 				</select>
 				<select name="cashproductsstarttimemins" id="cashproductsstarttimemins">
-					<option value="00">00</option>
-					<option value="11">11</option>
+					@for($i = 0; $i < 60; $i++)
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					@endfor
 				</select>
 			</div>
-		</div>
+		</div> -->
 
 
 		<div class="row form-group">
@@ -206,35 +218,39 @@
 			<div class="col-md-4">
 				<input type="date" name="cashenddate" id="cashenddate" value="" class="form-control" />
 			</div>
-			<!-- <div class="col-md-2">
+			<div class="col-md-2">
 				<span>Time:</span> 
 				<select name="cashendtimehr" id="cashendtimehr">
-					<option value="00">00</option>
-					<option value="11">11</option>
+					@for($i = 0; $i < 60; $i++)
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					@endfor
 				</select>
 				<select name="cashendtimemins" id="cashendtimehrmins">
-					<option value="00">00</option>
-					<option value="11">11</option>
+					@for($i = 0; $i < 60; $i++)
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					@endfor
 				</select>
-			</div> -->
+			</div>
 		</div>
         
-        <div class="row form-group product">
+        <!-- <div class="row form-group product">
 			<div class="col-md-4">
-				<span>Cashback End Time:</span> <span class="text-danger">*</span>
+				<span>Cashback End Time:</span>
 			</div>
 			
 			<div class="col-md-4">
 				<select name="cashproductsendtimehr" id="cashproductsendtimehr">
-					<option value="00">00</option>
-					<option value="11">11</option>
+					@for($i = 0; $i < 60; $i++)
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					@endfor
 				</select>
 				<select name="cashproductsendtimemins" id="cashproductsendtimemins">
-					<option value="00">00</option>
-					<option value="11">11</option>
+					@for($i = 0; $i < 60; $i++)
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					@endfor
 				</select>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="row form-group product">
 			<div class="col-md-4">
@@ -247,7 +263,7 @@
 
 		<div class="row form-group">
 			<div class="col-md-4">
-				<label for="isactive"> <input type="checkbox" name="isactive" id="isactive" value="1"> IsActive</label>
+				<label for="isactive"> <input type="checkbox" name="isactive" id="isactive" value="1"> IsActive <span class="text-danger">*</span></label>
 			</div>
 			
 		</div>

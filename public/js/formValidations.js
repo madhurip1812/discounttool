@@ -16,8 +16,8 @@ $("#addcashback").validate({
       'cashstartdate':'required',
       'cashenddate':'required' ,
       'isactive':'required',
-      'cashproductsendtimehr':'required',
-      'cashproductstarttimehr':'required',
+      // 'cashproductsendtimehr':'required',
+      // 'cashproductstarttimehr':'required',
       'productids':'required'
     },
     messages:{},
