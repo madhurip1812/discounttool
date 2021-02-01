@@ -74,7 +74,7 @@
         <div class="main">
             <div class="main-content">
                 <div class="container-fluid">
-                    <div class="col-md-12 alert alert-danger @if ($errors->any()) '' @else dont-display @endif" role="alert" id="error-msg-block-prod">
+                    <div class="col-md-12 alert alert-danger @if ($errors->any()) '' @else dont-display @endif alert-dismissible" role="alert" id="error-msg-block-prod">
                         <span class="col-md-11" id="error-msg-span-prod">
                             <ul>
                              @foreach ($errors->all() as $message)
@@ -82,11 +82,11 @@
                              @endforeach
                          </ul>
                      </span>
-                     <a href="#" class=" col-md-1 close" aria-label="Close">
+                     <a href="#" class=" col-md-1 close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </a>
                 </div>
-                <div class="alert alert-success @if (session('success')) '' @else dont-display @endif" role="alert" id="success-msg-block-prod">
+                <div class="alert alert-success @if (session('success')) '' @else dont-display @endif alert-dismissible" role="alert" id="success-msg-block-prod">
                     <span id="success-msg-span-prod">
                         <i class="fa fa-check-circle"></i>
                         @if(is_array(session('success')))
@@ -99,7 +99,7 @@
                         {{ session('success') }}
                         @endif
                     </span>
-                    <button type="button" class="close" aria-label="Close">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>

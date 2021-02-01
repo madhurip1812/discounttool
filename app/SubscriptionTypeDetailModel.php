@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubscriptionTypeDetailModel extends Model
 {
-    protected $connection = 'mysql';
+    protected $connection = 'mysql1';
     public $table = 'subscriptiontypedetail';
     protected $primaryKey = 'subscriptiontypedetailid';
     public $timestamps = false;

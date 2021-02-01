@@ -1,13 +1,19 @@
-$("#rulefor1").click(()=>{ //product
-	$(".intellikitsubscbox").hide();
-	$(".product").show();
-});
-
-$("#rulefor2").click(()=>{ //intellikit
-	$(".intellikitsubscbox").show();
-	$(".product").hide();
-});
-
+/**  hide productid field on page load   **/
 $(document).ready(()=>{
 	$(".product").hide();
+});
+
+/**  dispaly the fields as per selection of rulefor    **/
+$("input:radio[name='rulefor']").on('change',()=>{
+   let ruleFor = $("input:radio[name='rulefor']:checked").val();
+   
+   if(ruleFor == 'intellikit') { //intellikit
+       	$(".intellikitsubscbox").show();
+	    $(".product").hide();
+   } else if(ruleFor == 'time') { //product
+       $(".intellikitsubscbox").hide();
+       $(".product").show();
+   } else {
+
+   }
 });

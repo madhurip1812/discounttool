@@ -1,6 +1,7 @@
 $("#addcashback").validate({
     rules:{
-      'rulefor':'required',   
+      'rulefor':'required',
+      'cashcoupon':'required',   
       'rulename':'required',
       'cashoncoupon':'required',
       'cashoutcoupon':'required',

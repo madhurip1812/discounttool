@@ -34,6 +34,15 @@
 			</div>
 		</div>
 
+        <div class="row form-group">
+			<div class="col-md-4">
+				<span>Cashback Coupon:</span> <span class="text-danger">*</span>
+			</div>
+			<div class="col-md-4">
+				<input type="text" name="cashcoupon" id="cashcoupon" value="" class="form-control" />
+			</div>
+		</div>
+
 		<div class="row form-group">
 			<div class="col-md-4">
 				<span>Cashback On Coupon:</span> <span class="text-danger">*</span>
