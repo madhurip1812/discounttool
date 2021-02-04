@@ -19,13 +19,19 @@ class UserLoginController extends Controller
         $countrycode = base64_decode($countrycode);
         $langauge = base64_decode($langauge);
 
+        // $accessKey = $request->accesskey;
+        // $secretKey = $request->secretkey;
+        // $emailaddress = $request->emailaddress;
+        // $password = $request->password;
+        // $logindate = $request->date;
+
         $whereArr = array();
         $whereArr['username'] = $username;
         $whereArr['password'] = $password;
         $whereArr['logindate'] = $date;
         $whereArr['isactive'] = 1;
         $responseData = UserLoginModel::where($whereArr)->get();
-
+        
         if(!empty($responseData) && count($responseData) > 0) {
         	Session::put('name',$responseData[0]['name']);
         	Session::put('username',$responseData[0]['username']);

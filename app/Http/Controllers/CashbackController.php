@@ -12,7 +12,7 @@ use DB;
 
 class CashbackController extends Controller
 {
-    public function index(Request $request) {
+    public function addcashback(Request $request) {
 
       if(!empty($request->post())) { 
       	$request->validate([
@@ -38,10 +38,10 @@ class CashbackController extends Controller
       	$cashendtimehr = $request->cashendtimehr??NULL;
       	$cashendtimemins = $request->cashendtimemins??NULL;
         //echo date('Y-m-d H:i:s',strtotime($cashenddate .' ' . $cashendtimehr . ':' . $cashendtimemins));exit;
-      	if($request->rulefor == 'time') {
+      	if(trim($request->rulefor) == 'time') {
           //insert in product/time cashabck
       	  $response = SubscriptionCouponcodeModel::create(['CashBackCoupon'=>$request->cashcoupon,'cashbackrulefor'=>'time','cashbackrulename'=>$request->rulename??'','cashbackoncoupon'=>$request->cashoncoupon??'','cashbackoutcoupon'=>$request->cashoutcoupon??'','CouponValidityDays'=>$request->cashvaliddays??0,'CashBackPercentage'=>$request->cashperc??0.0,'CashBackMaxAmount'=>$request->cashmaxamnt??0.0,'CashBackOnMinmumPurchase'=>$request->cashminpurc??0.0,'EmailTemplateID'=>$request->emailtemplateid??0,'CashBackStartDate'=>date('Y-m-d H:i:s',strtotime($cashstartdate .' ' . $cashstarttimehr . ':' . $cashstarttimemins)),'CashBackEndDate'=>date('Y-m-d H:i:s',strtotime($cashenddate .' ' . $cashendtimehr . ':' . $cashendtimemins)),'isactive'=>$request->isactive??0,'createdby'=>session('username')??'','createddate'=>date('Y-m-d H:i:s')??NULL,'LastModifiedBy'=>session('username')??'','LastModifiedDate'=>date('Y-m-d H:i:s')??NULL,'productids'=>$request->productids??'']);	
-      	} else if($request->rulefor == 'intellikit') {
+      	} else if(trim($request->rulefor) == 'intellikit') {
       		//insert in intellikit cashabck
       		$response = SubscriptionCouponcodeModel::create(['CashBackCoupon'=>$request->cashcoupon,'cashbackrulefor'=>'intellikit','cashbackrulename'=>$request->rulename??'','cashbackoncoupon'=>$request->cashoncoupon??'','cashbackoutcoupon'=>$request->cashoutcoupon??'','CouponValidityDays'=>$request->cashvaliddays??0,'CashBackPercentage'=>$request->cashperc??0.0,'CashBackMaxAmount'=>$request->cashmaxamnt??0.0,'CashBackOnMinmumPurchase'=>$request->cashminpurc??0.0,'EmailTemplateID'=>$request->emailtemplateid??0,'CashBackStartDate'=>date('Y-m-d H:i:s',strtotime($cashstartdate .' ' . $cashstarttimehr . ':' . $cashstarttimemins)),'CashBackEndDate'=>date('Y-m-d H:i:s',strtotime($cashenddate .' ' . $cashendtimehr . ':' . $cashendtimemins)),'isactive'=>$request->isactive??0,'createdby'=>session('username')??'','createddate'=>date('Y-m-d H:i:s')??NULL,'LastModifiedBy'=>session('username')??'','LastModifiedDate'=>date('Y-m-d H:i:s')??NULL]);
             $subscriptionType = [];
@@ -69,5 +69,17 @@ class CashbackController extends Controller
       	return view('cashback.add');
       }
       
+    }
+
+    public function main($id = '') {
+      if(!empty($id)){
+        if(session::has('username')) {
+          
+        } else {
+          
+        }
+      } else {
+
+      }
     }
 }
