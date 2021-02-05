@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Session;
 use App\SubscriptionCouponcodeModel;
 use App\SubscriptionTypeDetailModel;
+use App\PagemasterModel;
 use DB;
 
 class CashbackController extends Controller
@@ -65,21 +66,30 @@ class CashbackController extends Controller
       	if(!empty($response) && !empty($response->CashBackCouponID)) {
 	        	return redirect()->back()->withSuccess('Record Added Successfully!');
 	        }
-      } else {
+      } else { 
       	return view('cashback.add');
       }
       
     }
 
-    public function main($id = '') {
-      if(!empty($id)){
-        if(session::has('username')) {
-          
+    public function main(Request $request,$id) { 
+      $id = !empty($id) ? base64_decode($id) : '';
+      if(!empty($request->post())) {
+        if($request->accesskey == $request->secretkey) {
+          if(!empty($id) && $id == 1) {
+         //$pageData = PagemasterModel::find($id);
+          return view('cashback.add');
+         } else {
+          echo "Invalid Request";
+         }
         } else {
-          
+          echo "Invalid Request";
         }
+      
       } else {
-
+        echo "Invalid Request" ;
       }
     }
 }
+
+
