@@ -3,25 +3,7 @@
 @section('content')
 <!-- <div class="main-content">
     <div class="container-fluid"> -->
-    	 <style> 
-        table { 
-            margin-left: auto; 
-            margin-right: auto; 
-          /*font-size: 10px; */
-            width: 100%; 
-            table-layout:fixed; 
-        } 
-  
-        td { 
-           /* border: 1px solid black; */
-            text-align: center; 
-            padding: 10px; 
-        } 
-  
-        tr:nth-child(even) { 
-           /* background-color: green; */
-        } 
-    </style> 
+    
 <div class="panel panel-headline">
     <div class="panel-heading">
         <h3 class="panel-title">Exclude Items</h3>
@@ -67,13 +49,13 @@
 							
 						
 						<td>
-						<input type="button" class="ExcludeBtn" value="Exclude Brands" id="btnExcludeBrands" /></td>
+						<input type="button" class="btn btn-primary ExcludeBtn" value="Exclude Brands" id="btnExcludeBrands" /></td>
 						<td>
-						<input type="button" class="ExcludeBtn" value="Exclude Categories" id="btnExcludeCat" /></td>
+						<input type="button" class="btn btn-primary ExcludeBtn" value="Exclude Categories" id="btnExcludeCat" /></td>
 						<td>
-						<input type="button" class="ExcludeBtn" value="Exclude SubCategories" id="btnExcldeSubCat" /></td>
+						<input type="button" class="btn btn-primary ExcludeBtn" value="Exclude SubCategories" id="btnExcldeSubCat" /></td>
 						<td>
-						<input type="button" class="ExcludeBtn" value="Exclude Products" id="btnExcludeProducts" /></td>
+						<input type="button" class="btn btn-primary ExcludeBtn" value="Exclude Products" id="btnExcludeProducts" /></td>
 						</tr>
 
 						<tr>
@@ -92,7 +74,7 @@
 
 						</textarea > 
 						</td>
-						<td><input type="button" name="btnShowDesc" value="Show Description"  class="btnShowDesc" id="btnShowDesc" /><p style="color: #3490dc;">(Description's are available for Brands,Categories and SubCategories)</p> </td>
+						<td><input type="button" name="btnShowDesc" value="Show Description"  class="btn btn-success btnShowDesc" id="btnShowDesc" /><p style="color: #3490dc;">(Description's are available for Brands,Categories and SubCategories)</p> </td>
 
 						</tr>
 

@@ -23,5 +23,6 @@ Route::any('/addcashback/{id?}','CashbackController@addcashback')->name('addcash
 Route::any('/listcashback','CashbackController@listcashback')->name('listcashback');
 Route::any('/admin/{id?}','CashbackController@main')->name('main');
 Route::any('/excludeitems','CouponController@excludeitems')->name('excludeitems');
+Route::any('/excludeitemsLog','CouponController@excludeitemsLog')->name('excludeitemsLog');
 Route::get('/CouponExcludeIds', 'CouponController@CouponExcludeIds')->name('CouponExcludeIds');
 

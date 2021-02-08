@@ -32,6 +32,9 @@
                             <li>
                                 <a href="{{route('excludeitems')}}" class="@if (Route::currentRouteName() == 'excludeitems') active @endif">Exclude Items</a>
                             </li>
+                             <li>
+                                <a href="{{route('excludeitemsLog')}}" class="@if (Route::currentRouteName() == 'excludeitemsLog') active @endif">Exclude Items Log</a>
+                            </li>
  
                         </ul>
                     </div>

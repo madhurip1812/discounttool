@@ -7,13 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- VENDOR CSS -->
+     
     <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}">
     <!--     <link rel="stylesheet" href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}"> -->
     <link rel="stylesheet" href="{{asset('assets/vendor/linearicons/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/chartist/css/chartist-custom.css')}}">
     <!-- MAIN CSS -->
+
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+
     <!-- select2 -->
     <link href="{{asset('assets/vendor/select2/dist/css/select2.min.css')}}" rel='stylesheet' type='text/css'>
     <!-- GOOGLE FONTS -->
