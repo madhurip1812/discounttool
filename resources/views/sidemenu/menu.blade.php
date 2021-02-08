@@ -14,7 +14,9 @@
                             <li>
                                 <a href="{{route('addcashback')}}" class="@if (Route::currentRouteName() == 'addcashback') active @endif">Add</a>
                             </li>
- 
+                            <li>
+                                <a href="{{route('listcashback')}}" class="@if (Route::currentRouteName() == 'listcashback') active @endif">View</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
