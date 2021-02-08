@@ -182,4 +182,13 @@ class CouponController extends Controller
           }
         return response()->json(['success' =>$iscopied, 'message' => $save], 200);
     }
+    public function ExcludeItemsLog()
+    {
+         
+     $ExcludedBrandlog=  DB::connection('mysql_commonmaster')->table('excludebrandidhistory')->orderBy('Modifieddate', 'desc')->take(10)->get();
+    $ExcludedCatlog=  DB::connection('mysql_commonmaster')->table('excludecategoryidhistory')->orderBy('Modifieddate', 'desc')->take(10)->get();
+    $ExcludedSubCatlog=  DB::connection('mysql_commonmaster')->table('excludesubcategoryidhistory')->orderBy('Modifieddate', 'desc')->take(10)->get();
+    $ExcludedProductlog=  DB::connection('mysql_commonmaster')->table('excludeproductidhistory')->orderBy('Modifieddate', 'desc')->take(10)->get();
+        return view('coupon.excludeItemsLog',compact('ExcludedBrandlog','ExcludedCatlog','ExcludedSubCatlog','ExcludedProductlog'));
+    }
 }
