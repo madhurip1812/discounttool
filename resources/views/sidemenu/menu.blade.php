@@ -20,6 +20,22 @@
                         </ul>
                     </div>
                 </li>
+                 <li>
+                    <a href="#couponentity" data-toggle="collapse" class="main-menu @if(in_array(Route::currentRouteName(),config('constants.cashbackRoutes'))) active @else collapsed @endif">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        <span>Coupon</span>
+                        <i class="fa @if(in_array(Route::currentRouteName(),config('constants.cashbackRoutes'))) fa-chevron-down @else fa-chevron-right @endif pull-right" aria-hidden="true"></i>
+                    </a>
+                    <div id="couponentity" class="collapse @if(in_array(Route::currentRouteName(),config('constants.cashbackRoutes'))) in @endif">
+                        <ul class="nav">
+                           
+                            <li>
+                                <a href="{{route('excludeitems')}}" class="@if (Route::currentRouteName() == 'excludeitems') active @endif">Exclude Items</a>
+                            </li>
+ 
+                        </ul>
+                    </div>
+                </li>
               
             </ul>
         </nav>
