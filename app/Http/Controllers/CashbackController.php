@@ -90,12 +90,11 @@ class CashbackController extends Controller
         
         $where = [];
         if(!empty($request->coupon)) $where[] = ['CashBackCoupon','ilike','%' . $request->coupon . '%'];
-        SubscriptionCouponcodeModel::where($where)
-        ->when(!empty($request->startdate),function($q) use($request->startdate){
-          $q->whereDate('CashBackStartDate',$request->startdate)
-        })->when(!empty($request->startdate) && !empty($request->enddate), function($q) use($request->startdate,$request->enddate){
+        // SubscriptionCouponcodeModel::where($where)->when(!empty($request->startdate),function($q) use($request->startdate){
+        //   $q->whereDate('CashBackStartDate',$request->startdate)
+        // })->when(!empty($request->startdate) && !empty($request->enddate), function($q) use($request->startdate,$request->enddate){
 
-        })
+        // })
       } else {
          return view('cashback.list');
       }
