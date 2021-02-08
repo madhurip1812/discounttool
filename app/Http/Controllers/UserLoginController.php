@@ -19,6 +19,12 @@ class UserLoginController extends Controller
         $countrycode = base64_decode($countrycode);
         $langauge = base64_decode($langauge);
 
+        // $accessKey = $request->accesskey;
+        // $secretKey = $request->secretkey;
+        // $emailaddress = $request->emailaddress;
+        // $password = $request->password;
+        // $logindate = $request->date;
+
         $whereArr = array();
         $whereArr['username'] = $username;
         $whereArr['password'] = $password;

@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/userlogin/{username?}/{password?}/{date?}/{countrycode?}/{langauge?}','UserLoginController@index')->name('userlogin');
+//Route::any('/admin/{username?}/{password?}/{date?}/{countrycode?}/{langauge?}','UserLoginController@index')->name('userlogin');
 Route::get('/logout','UserLoginController@logout')->name('logout');
-Route::any('/addcashback','CashbackController@index')->name('addcashback');
+
+Route::any('/addcashback','CashbackController@addcashback')->name('addcashback');
+Route::any('/admin/{id?}','CashbackController@main')->name('main');
 Route::any('/excludeitems','CouponController@excludeitems')->name('excludeitems');
 Route::get('/CouponExcludeIds', 'CouponController@CouponExcludeIds')->name('CouponExcludeIds');
+
