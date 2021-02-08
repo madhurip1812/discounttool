@@ -13,6 +13,11 @@ use DB;
 
 class CashbackController extends Controller
 {
+     /*
+     Description - add cashback data
+     @request Http\Illuminate\Request
+     @response Http\Illuminate\Response
+    */
     public function addcashback(Request $request) {
 
       if(!empty($request->post())) { 
@@ -71,24 +76,50 @@ class CashbackController extends Controller
       }
       
     }
+    
+    /*
+     Description - List cashback data
+     @request Http\Illuminate\Request
+     @response Http\Illuminate\Response
+    */
+    public function listcashback(Request $request) {
+      if(!empty($request->post())) {
+        
+        $where = [];
+        if(!empty($request->coupon)) $where[] = ['CashBackCoupon','ilike','%' . $request->coupon . '%'];
+        SubscriptionCouponcodeModel::where($where)
+        ->when(!empty($request->startdate),function($q) use($request->startdate){
+          $q->whereDate('CashBackStartDate',$request->startdate)
+        })->when(!empty($request->startdate) && !empty($request->enddate), function($q) use($request->startdate,$request->enddate){
 
+        })
+      } else {
+         return view('cashback.list');
+      }
+    }
+    
+     /*
+     Description - redirect the request as per pageid in get request
+     @request Http\Illuminate\Request
+     @response Http\Illuminate\Response
+    */
     public function main(Request $request,$id) { 
       $id = !empty($id) ? base64_decode($id) : '';
-      if(!empty($request->post())) {
-        if($request->accesskey == $request->secretkey) {
+      // if(!empty($request->post())) {
+      //   if($request->accesskey == $request->secretkey) {
           if(!empty($id) && $id == 1) {
          //$pageData = PagemasterModel::find($id);
           return view('cashback.add');
          } else {
           echo "Invalid Request";
          }
-        } else {
-          echo "Invalid Request";
-        }
+      //   } else {
+      //     echo "Invalid Request";
+      //   }
       
-      } else {
-        echo "Invalid Request" ;
-      }
+      // } else {
+      //   echo "Invalid Request" ;
+      // }
     }
 }
 

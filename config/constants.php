@@ -1,4 +1,4 @@
 <?php
 return [
-   'cashbackRoutes' => ['addcashback']
+   'cashbackRoutes' => ['addcashback','listcashback']
 ];
