@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Session;
-use App\UserLoginModel;
-use App\SessionCountryModel;
+use App\Models\UserLoginModel;
+use App\Models\SessionCountryModel;
 
 class UserLoginController extends Controller
 {
@@ -25,10 +25,14 @@ class UserLoginController extends Controller
         $whereArr['logindate'] = $date;
         $whereArr['isactive'] = 1;
         $responseData = UserLoginModel::where($whereArr)->get();
-
+        
         if(!empty($responseData) && count($responseData) > 0) {
-        	Session::put('name',$responseData[0]['name']);
-        	Session::put('username',$responseData[0]['username']);
+           
+             $user = json_decode(json_encode($responseData[0]));
+             Session::put('user',$user);
+             
+        	//Session::put('name',$responseData[0]['name']);
+        	//Session::put('emailaddress',$responseData[0]['username']);
 
         	//create log for this session
             SessionCountryModel::create([

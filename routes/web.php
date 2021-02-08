@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/userlogin/{username?}/{password?}/{date?}/{countrycode?}/{langauge?}','UserLoginController@index')->name('userlogin');
 Route::get('/logout','UserLoginController@logout')->name('logout');
 Route::any('/addcashback','CashbackController@index')->name('addcashback');
+Route::any('/excludeitems','CouponController@excludeitems')->name('excludeitems');
+Route::get('/CouponExcludeIds', 'CouponController@CouponExcludeIds')->name('CouponExcludeIds');

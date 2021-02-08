@@ -47,7 +47,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span>{{ session('name') }}</span>
+                                <span>{{ session('user.username') }}</span>
                                 <i class="fa fa-sort-desc" aria-hidden="true"></i>
                             </a>
                             <ul class="dropdown-menu">
@@ -73,7 +73,7 @@
         <!-- END LEFT SIDEBAR -->           
         <div class="main">
             <div class="main-content">
-                <div class="container-fluid">
+                <div class="container-fluid" id="error-success-message">
                     <div class="col-md-12 alert alert-danger @if ($errors->any()) '' @else dont-display @endif alert-dismissible" role="alert" id="error-msg-block-prod">
                         <span class="col-md-11" id="error-msg-span-prod">
                             <ul>
@@ -99,9 +99,9 @@
                         {{ session('success') }}
                         @endif
                     </span>
-                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                    <a href="#" class=" col-md-1 close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </a>
                 </div>
             </div>
             @yield('content')
@@ -128,6 +128,7 @@
     <script src="{{asset('assets/vendor/chartist/js/chartist.min.js')}}"></script>
     <script src="{{asset('assets/scripts/klorofil-common.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
+    <script src="{{asset('js/coupon.js')}}"></script>
     <script src="{{ asset('js/formValidations.js')}}"></script>
     <script src="{{asset('assets/vendor/select2/dist/js/select2.min.js')}}" type='text/javascript'></script>
 

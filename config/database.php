@@ -81,6 +81,27 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
+          
+           //COMMONMASTER
+        'mysql_commonmaster' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL_COMMONMASTER'),
+            'host' => env('DB_HOST_COMMONMASTER'),
+            'port' => env('DB_PORT_COMMONMASTER'),
+            'database' => env('DB_DATABASE_COMMONMASTER', 'commonmaster'),
+            'username' => env('DB_USERNAME_COMMONMASTER'),
+            'password' => env('DB_PASSWORD_COMMONMASTER'),
+            'unix_socket' => env('DB_SOCKET_COMMONMASTER'),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',
