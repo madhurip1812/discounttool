@@ -19,8 +19,8 @@
 			<div class="col-md-12">
 				<div class="input-group" style="box-shadow: none;">
 				<span>Rule For: <span class="text-danger">*</span> </span> &nbsp;&nbsp;&nbsp;
-				    <label for="rulefor2"> <input type="radio" name="rulefor" id="rulefor2" value="intellikit" @if(!empty($cashBackData)&&!empty($cashBackData->CashbackRulefor) && ($cashBackData->CashbackRulefor=='intellikit')){{'checked'}}@elseif(empty($cashBackData)){{'checked'}}@endif> Intellikit</label>&nbsp;&nbsp;&nbsp;
-					<label for="rulefor1"> <input type="radio" name="rulefor" id="rulefor1" value="time" @if(!empty($cashBackData)&&!empty($cashBackData->CashbackRulefor) && ($cashBackData->CashbackRulefor=='time')){{'checked'}}@endif> Product/Time</label><!-- &nbsp;&nbsp;&nbsp;
+				    <label for="rulefor2"> <input type="radio" name="rulefor" id="rulefor2" value="intellikit" checked> Intellikit</label>&nbsp;&nbsp;&nbsp;
+					<label for="rulefor1"> <input type="radio" name="rulefor" id="rulefor1" value="time"> Product/Time</label><!-- &nbsp;&nbsp;&nbsp;
 					<label for="rulefor3"> <input type="radio" name="rulefor" id="rulefor3" value="3"> TimeBased</label> -->
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 				<span>Rule Name:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="rulename" id="rulename" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackRulename)){{$cashBackData->CashBackRulename}}@endif" class="form-control" />
+				<input type="text" name="rulename" id="rulename" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -39,7 +39,7 @@
 				<span>Cashback Coupon:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="cashcoupon" id="cashcoupon" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif" class="form-control" />
+				<input type="text" name="cashcoupon" id="cashcoupon" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -48,7 +48,7 @@
 				<span>Cashback On Coupon:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="cashoncoupon" id="cashoncoupon" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackOnCoupon)){{$cashBackData->CashBackOnCoupon}}@endif" class="form-control" />
+				<input type="text" name="cashoncoupon" id="cashoncoupon" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -57,7 +57,7 @@
 				<span>Cashback Out Coupon:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="cashoutcoupon" id="cashoutcoupon" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackOutCoupon)){{$cashBackData->CashBackOutCoupon}}@endif" class="form-control" />
+				<input type="text" name="cashoutcoupon" id="cashoutcoupon" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -66,7 +66,7 @@
 				<span>Cashback Validity Days:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="number" name="cashvaliddays" id="cashvaliddays" value="@if(!empty($cashBackData)&&!empty($cashBackData->CouponValidityDays)){{$cashBackData->CouponValidityDays}}@endif" class="form-control" />
+				<input type="number" name="cashvaliddays" id="cashvaliddays" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -75,7 +75,7 @@
 				<span>Cashback Percentage:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="cashperc" id="cashperc" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackPercentage)){{$cashBackData->CashBackPercentage}}@endif" class="form-control" />
+				<input type="text" name="cashperc" id="cashperc" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -84,7 +84,7 @@
 				<span>Cashback MaxAmount:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="cashmaxamnt" id="cashmaxamnt" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackMaxAmount)){{$cashBackData->CashBackMaxAmount}}@endif" class="form-control" />
+				<input type="text" name="cashmaxamnt" id="cashmaxamnt" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -93,7 +93,7 @@
 				<span>Cashback Min Purchase:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="cashminpurc" id="cashminpurc" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackOnMinmumPurchase)){{$cashBackData->CashBackOnMinmumPurchase}}@endif" class="form-control" />
+				<input type="text" name="cashminpurc" id="cashminpurc" value="" class="form-control" />
 			</div>
 		</div>
 
@@ -105,7 +105,7 @@
 				<select name="intellikit3monthssubscrboxno" id="intellikit3monthssubscrboxno" class="form-control">
 					<option value="">select</option>
 					@for($i = 1; $i <= 3; $i++)
-					<option value="{{$i}}"@if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif>{{$i}}</option>
+					<option value="{{$i}}">{{$i}}</option>
 					@endfor
 				</select>
 			</div>
@@ -123,7 +123,7 @@
 				<select name="intellikit6monthssubscrboxno" id="intellikit6monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
 					@for($i = 1; $i <= 6; $i++)
-					<option value="{{$i}}" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif>{{$i}}</option>
+					<option value="{{$i}}">{{$i}}</option>
 					@endfor
 				</select>
 			</div>
@@ -141,7 +141,7 @@
 				<select name="intellikit9monthssubscrboxno" id="intellikit9monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
 					@for($i = 1; $i <= 9; $i++)
-					<option value="{{$i}}" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif>{{$i}}</option>
+					<option value="{{$i}}">{{$i}}</option>
 					@endfor
 				</select>
 			</div>
@@ -159,7 +159,7 @@
 				<select name="intellikit12monthssubscrboxno" id="intellikit12monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
 					@for($i = 1; $i <= 12; $i++)
-					<option value="{{$i}}"@if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif>{{$i}}</option>
+					<option value="{{$i}}">{{$i}}</option>
 					@endfor
 				</select>
 			</div>
@@ -174,27 +174,27 @@
 				<span>EmailTemplateID:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="number" name="emailtemplateid" id="emailtemplateid" value="@if(!empty($cashBackData)&&!empty($cashBackData->EmailTemplateID)){{$cashBackData->EmailTemplateID}}@endif" class="form-control" />
+				<input type="number" name="emailtemplateid" id="emailtemplateid" value="" class="form-control" />
 			</div>
 		</div>
 
-        <div class="row form-group">
+		<div class="row form-group">
 			<div class="col-md-4">
 				<span>Cashback StartDate:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="date" name="cashstartdate" id="cashstartdate" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackStartDate)){{date('Y-m-d',strtotime($cashBackData->CashBackStartDate))}}@endif" class="form-control" />
+				<input type="date" name="cashstartdate" id="cashstartdate" value="" class="form-control" />
 			</div>
 			<div class="col-md-2">
 				<span>Time:</span> 
 				<select name="cashstarttimehr" id="cashstarttimehr">
 					@for($i = 0; $i < 60; $i++)
-					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackStartDate) && (date('H',strtotime($cashBackData->CashBackStartDate)) == $i) ){{'selected'}}@endif>@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
 					@endfor
 				</select>
 				<select name="cashstarttimemins" id="cashstarttimemins">
 					@for($i = 0; $i < 60; $i++)
-					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackStartDate) && (date('H',strtotime($cashBackData->CashBackStartDate)) == $i) ){{'selected'}}@endif>@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
 					@endfor
 				</select>
 			</div>
@@ -225,18 +225,18 @@
 				<span>Cashback EndDate:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="date" name="cashenddate" id="cashenddate" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackEndDate)){{date('Y-m-d',strtotime($cashBackData->CashBackEndDate))}}@endif" class="form-control" />
+				<input type="date" name="cashenddate" id="cashenddate" value="" class="form-control" />
 			</div>
 			<div class="col-md-2">
 				<span>Time:</span> 
 				<select name="cashendtimehr" id="cashendtimehr">
 					@for($i = 0; $i < 60; $i++)
-					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackEndDate) && (date('H',strtotime($cashBackData->CashBackEndDate)) == $i) ){{'selected'}}@endif>@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
 					@endfor
 				</select>
 				<select name="cashendtimemins" id="cashendtimehrmins">
 					@for($i = 0; $i < 60; $i++)
-					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackEndDate) && (date('i',strtotime($cashBackData->CashBackEndDate)) == $i) ){{'selected'}}@endif>@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif">@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
 					@endfor
 				</select>
 			</div>
@@ -266,17 +266,17 @@
 				<span>Product IDs:</span> <span class="text-danger">*</span>
 			</div>
 			<div class="col-md-4">
-				<input type="text" name="productids" id="productids" value="@if(!empty($cashBackData)&&!empty($cashBackData->ProductIDs) ){{$cashBackData->ProductIDs}}@endif" class="form-control" />
+				<input type="text" name="productids" id="productids" value="" class="form-control" />
 			</div>
 		</div>
 
 		<div class="row form-group">
 			<div class="col-md-4">
-				<label for="isactive"> <input type="checkbox" name="isactive" id="isactive" value="1" @if(!empty($cashBackData)&&!empty($cashBackData->IsActive) ){{'checked'}}@endif> IsActive <span class="text-danger">*</span></label>
+				<label for="isactive"> <input type="checkbox" name="isactive" id="isactive" value="1"> IsActive <span class="text-danger">*</span></label>
 			</div>
 			
 		</div>
-<!-- 
+
 		<div class="row form-group">
 			<div class="col-md-4">
 				<span>CreatedBy:</span>
@@ -308,7 +308,7 @@
 			<div class="col-md-4">
 				<span>{{date('Y-m-d H:i:s')}}</span>
 			</div>
-		</div> -->
+		</div>
 		<div class="row form-group text-center">
 			<div class="col-md-12">
 				<input type="submit" value="Save Details" class="btn btn-primary btn-lg" />
@@ -319,4 +319,4 @@
 </div>
 <!--     </div>
 </div> -->
-@endsection	
+@endsection
