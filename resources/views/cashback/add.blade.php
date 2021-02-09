@@ -16,6 +16,7 @@
 		<form name="addcashback" id="addcashback" action="{{route('addcashback')}}" method="POST">
 			@csrf
 		<div class="row">
+			<input type="hidden" name="cashcouponid" id="cashcouponid" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackCouponID)){{$cashBackData->CashBackCouponID}}@endif" />
 			<div class="col-md-12">
 				<div class="input-group" style="box-shadow: none;">
 				<span>Rule For: <span class="text-danger">*</span> </span> &nbsp;&nbsp;&nbsp;
@@ -96,8 +97,8 @@
 				<input type="text" name="cashminpurc" id="cashminpurc" value="@if(!empty($cashBackData)&&!empty($cashBackData->CashBackOnMinmumPurchase)){{$cashBackData->CashBackOnMinmumPurchase}}@endif" class="form-control" />
 			</div>
 		</div>
-
-		<div class="row form-group intellikitsubscbox">
+        
+        <div class="row form-group intellikitsubscbox">
 			<div class="col-md-4">
 				<span>Intellikit 3 Months Subscription Box No:</span> <span class="text-danger">*</span>
 			</div>
@@ -105,7 +106,7 @@
 				<select name="intellikit3monthssubscrboxno" id="intellikit3monthssubscrboxno" class="form-control">
 					<option value="">select</option>
 					@for($i = 1; $i <= 3; $i++)
-					<option value="{{$i}}"@if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif>{{$i}}</option>
+					<option value="{{$i}}" @if(!empty($subscriptionData) && count($subscriptionData) > 0 && $subscriptionData[0]->subscriptiontype == '3' && $subscriptionData[0]->subscriptionboxno == $i){{'selected'}}@endif>{{$i}}</option>
 					@endfor
 				</select>
 			</div>
@@ -123,7 +124,7 @@
 				<select name="intellikit6monthssubscrboxno" id="intellikit6monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
 					@for($i = 1; $i <= 6; $i++)
-					<option value="{{$i}}" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif>{{$i}}</option>
+					<option value="{{$i}}" @if(!empty($subscriptionData) && count($subscriptionData) > 0 && $subscriptionData[1]->subscriptiontype == '6' && $subscriptionData[1]->subscriptionboxno == $i){{'selected'}}@endif>{{$i}}</option>
 					@endfor
 				</select>
 			</div>
@@ -141,7 +142,7 @@
 				<select name="intellikit9monthssubscrboxno" id="intellikit9monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
 					@for($i = 1; $i <= 9; $i++)
-					<option value="{{$i}}" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif>{{$i}}</option>
+					<option value="{{$i}}" @if(!empty($subscriptionData) && count($subscriptionData) > 0 && $subscriptionData[2]->subscriptiontype == '9' && $subscriptionData[2]->subscriptionboxno == $i){{'selected'}}@endif>{{$i}}</option>
 					@endfor
 				</select>
 			</div>
@@ -159,7 +160,7 @@
 				<select name="intellikit12monthssubscrboxno" id="intellikit12monthssubscrboxno"  class="form-control">
 					<option value="">select</option>
 					@for($i = 1; $i <= 12; $i++)
-					<option value="{{$i}}"@if(!empty($cashBackData)&&!empty($cashBackData->CashBackCoupon)){{$cashBackData->CashBackCoupon}}@endif>{{$i}}</option>
+					<option value="{{$i}}" @if(!empty($subscriptionData) && count($subscriptionData) > 0 && $subscriptionData[3]->subscriptiontype == '12' && $subscriptionData[3]->subscriptionboxno == $i){{'selected'}}@endif>{{$i}}</option>
 					@endfor
 				</select>
 			</div>
@@ -168,7 +169,7 @@
 			</div> -->
 			<input type="hidden" name="intellikit12monthssubscrtype" id="intellikit12monthssubscrtype" value="12">
 		</div>
-
+       
 		<div class="row form-group">
 			<div class="col-md-4">
 				<span>EmailTemplateID:</span> <span class="text-danger">*</span>
@@ -194,7 +195,7 @@
 				</select>
 				<select name="cashstarttimemins" id="cashstarttimemins">
 					@for($i = 0; $i < 60; $i++)
-					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackStartDate) && (date('H',strtotime($cashBackData->CashBackStartDate)) == $i) ){{'selected'}}@endif>@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
+					<option value="@if($i < 10){{0}}{{$i}}@else{{$i}}@endif" @if(!empty($cashBackData)&&!empty($cashBackData->CashBackStartDate) && (date('i',strtotime($cashBackData->CashBackStartDate)) == $i) ){{'selected'}}@endif>@if($i < 10){{'0'}}{{$i}}@else{{$i}}@endif</option>
 					@endfor
 				</select>
 			</div>
@@ -276,13 +277,13 @@
 			</div>
 			
 		</div>
-<!-- 
+
 		<div class="row form-group">
 			<div class="col-md-4">
 				<span>CreatedBy:</span>
 			</div>
 			<div class="col-md-4">
-				<span>{{session('username')}}</span>
+				<span>@if(!empty($cashBackData)&&!empty($cashBackData->CreatedBy) ){{$cashBackData->CreatedBy}}@else {{session('username')}} @endif</span>
 			</div>
 		</div>
 		<div class="row form-group">
@@ -290,7 +291,7 @@
 				<span>Created Date:</span>
 			</div>
 			<div class="col-md-4">
-				<span>{{date('Y-m-d H:i:s')}}</span>
+				<span>@if(!empty($cashBackData)&&!empty($cashBackData->CreatedDate) ){{$cashBackData->CreatedDate}}@else {{date('Y-m-d H:i:s')}} @endif</span>
 			</div>
 		</div>
 		<div class="row form-group">
@@ -298,7 +299,7 @@
 				<span>ModifiedBy:</span>
 			</div>
 			<div class="col-md-4">
-				<span>{{session('username')}}</span>
+				<span>@if(!empty($cashBackData)&&!empty($cashBackData->LastModifiedBy) ){{$cashBackData->LastModifiedBy}}@else {{session('username')}} @endif</span>
 			</div>
 		</div>
 		<div class="row form-group">
@@ -306,9 +307,9 @@
 				<span>Modified Date:</span>
 			</div>
 			<div class="col-md-4">
-				<span>{{date('Y-m-d H:i:s')}}</span>
+				<span>@if(!empty($cashBackData)&&!empty($cashBackData->LastModifiedDate) ){{$cashBackData->LastModifiedDate}}@else {{date('Y-m-d H:i:s')}} @endif</span>
 			</div>
-		</div> -->
+		</div>
 		<div class="row form-group text-center">
 			<div class="col-md-12">
 				<input type="submit" value="Save Details" class="btn btn-primary btn-lg" />

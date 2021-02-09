@@ -11,4 +11,8 @@ class SubscriptionTypeDetailModel extends Model
     protected $primaryKey = 'subscriptiontypedetailid';
     public $timestamps = false;
     protected $fillable = ['subscriptioncouponcodeid','subscriptiontype','subscriptionboxno','isactive'];
+
+    public function subscriptionCouponCode() {
+    	return $this->belongsTo('App\Models\SubscriptionCouponcodeModel');
+    }
 }
