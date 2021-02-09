@@ -18,7 +18,9 @@ class UserLoginController extends Controller
         $date = base64_decode($date);
         $countrycode = base64_decode($countrycode);
         $langauge = base64_decode($langauge);
-
+        $encData = $username.'::'.$password.'::'.$date.'::'.$countrycode.'::'.$langauge.'::'.$pageid;
+        $encodedData = base64_encode($encData);
+        $url = '?r='.$encodedData
         // $accessKey = $request->accesskey;
         // $secretKey = $request->secretkey;
         // $emailaddress = $request->emailaddress;

@@ -70,7 +70,7 @@ class CashbackController extends Controller
             $subscriptionBoxNo = [];
             $subscriptionBoxNo = [$request->intellikit3monthssubscrboxno??0,$request->intellikit6monthssubscrboxno??0,$request->intellikit9monthssubscrboxno??0,$request->intellikit12monthssubscrboxno??0];
             for($i = 0; $i < $subscriptionTypeLen; $i++) {
-              SubscriptionTypeDetailModel::create([
+              SubscriptionTypeDetailModel::updateOrCreate(['subscriptioncouponcodeid'=>$response->CashBackCouponID,'subscriptiontype'=>$subscriptionType[$i]],[
               'subscriptioncouponcodeid'=>$response->CashBackCouponID,
               'subscriptiontype'=>$subscriptionType[$i],
               'subscriptionboxno'=>$subscriptionBoxNo[$i],
@@ -104,6 +104,7 @@ class CashbackController extends Controller
      @response Http\Illuminate\Response
     */
     public function listcashback(Request $request) { 
+      //print_r(DB::connection('pgsql')->table('discountconfig')->select('*')->get());exit;
       if(!empty($request->post())) {
         $startdate = $request->startdate??'';
         $enddate = $request->enddate??'';
@@ -141,7 +142,7 @@ class CashbackController extends Controller
      @request Http\Illuminate\Request
      @response Http\Illuminate\Response
     */
-    public function main(Request $request,$id) { 
+    public function main(Request $request,$id='') { 
       $id = !empty($id) ? base64_decode($id) : '';
       // if(!empty($request->post())) {
       //   if($request->accesskey == $request->secretkey) {
